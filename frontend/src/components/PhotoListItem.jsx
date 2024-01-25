@@ -10,8 +10,8 @@ const PhotoListItem = (props) => {
       <div className="photo-list__user-details">
       <img src={profile} className="photo-list__user-profile"></img>
         <p className="photo-list__user-info">{username}</p>
-      </div>
         <p className="photo-list__user-location">{location.city}, {location.country}</p>
+      </div>
     </div>
   )
 };
