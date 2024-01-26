@@ -5,15 +5,15 @@ import '../styles/PhotoFavButton.scss';
 
 
 function PhotoFavButton() {
-  const [favorite, setFavorite] = useState(0)
+  const [favorite, setFavorite] = useState(false)
   
   const handleClick = () => {
-    return setFavorite((prevFavorite) => (prevFavorite === 0 ? 1 : 0))  
+    return setFavorite((prevFavorite) => (prevFavorite === false ? true : false))  
   }
   return (
     <div className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg" onClick={handleClick} >
-        {favorite === 0 ? <FavIcon /> : <FavIcon selected="true"/>}
+        <FavIcon selected={favorite}/>
       </div>
     </div>
   );
