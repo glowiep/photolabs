@@ -5,11 +5,11 @@ import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
   const {photos} = props;
-  
+
   return (
     <ul className="photo-list">
       {photos.map((photo) => (
-        <PhotoListItem key={photo.user.id} photo={photo}/>
+        <PhotoListItem key={photo.id} photo={photo}/>
        ))}
     </ul>
   );
