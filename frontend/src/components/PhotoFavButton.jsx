@@ -1,12 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React from "react";
 
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 
 function PhotoFavButton(props) {
-  const {favorites, setFavorites, id} = props;
-  const [selected, setSelected] = useState(false);
+  const {favorites, setFavorites, id, setSelected, selected} = props;
   
   const handleClick = () => {
     setFavorites(prevFavorites => {

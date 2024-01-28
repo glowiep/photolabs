@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from 'react';
 
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
@@ -8,9 +8,11 @@ const PhotoListItem = (props) => {
   const {favorites, setFavorites} = props;
   const id = props.photo.id;
 
+  const [selected, setSelected] = useState(false);
+
   return (
     <div className="photo-list__item">
-      <PhotoFavButton favorites={favorites} setFavorites={setFavorites} id={id}/>
+      <PhotoFavButton favorites={favorites} setFavorites={setFavorites} id={id} setSelected={setSelected} selected={selected}/>
       <img src={urls.regular} className="photo-list__image"></img>
       <div className="photo-list__user-info photo-list__user-details">
         <img src={user.profile} className="photo-list__user-profile"></img>
