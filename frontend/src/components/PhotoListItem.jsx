@@ -3,11 +3,17 @@ import React, { useCallback, useState } from 'react';
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
 
-const PhotoListItem = ({photo, favorites, setFavorites, setDisplayModal, setPhotoSelected}) => {
+const PhotoListItem = ({
+  photo, 
+  favorites, 
+  setFavorites, 
+  setDisplayModal, 
+  setPhotoSelected, 
+  favSelected, 
+  setFavSelected
+}) => {
   const {urls, location, user} = photo;
   const id = photo.id;
-
-  const [favSelected, setFavSelected] = useState(false);
 
   const handlePhotoClick = () => {
     setPhotoSelected(photo)
@@ -15,9 +21,9 @@ const PhotoListItem = ({photo, favorites, setFavorites, setDisplayModal, setPhot
   }
 
   return (
-    <div className="photo-list__item" onClick={handlePhotoClick}>
+    <div className="photo-list__item">
       <PhotoFavButton setFavorites={setFavorites} id={id} setFavSelected={setFavSelected} favSelected={favSelected}/>
-      <img src={urls.regular} className="photo-list__image"></img>
+      <img src={urls.regular} className="photo-list__image" onClick={handlePhotoClick}></img>
       <div className="photo-list__user-info photo-list__user-details">
         <img src={user.profile} className="photo-list__user-profile"></img>
         <div>
