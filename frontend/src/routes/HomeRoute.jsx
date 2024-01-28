@@ -10,20 +10,17 @@ const HomeRoute = ({
   setDisplayModal, 
   setPhotoSelected, 
   favorites, 
-  setFavorites,
-  favSelected, 
-  setFavSelected
+  updateFavorites
 }) => {
   return (
     <div className="home-route">
       <TopNavigation topics={topics} isFavPhotoExist={favorites.length}/>
       <PhotoList 
         photos={photos}
-        setFavorites={setFavorites}
+        favorites={favorites}
+        updateFavorites={updateFavorites}
         setDisplayModal={setDisplayModal}
         setPhotoSelected={setPhotoSelected}
-        favSelected={favSelected}
-        setFavSelected={setFavSelected}
       />
     </div>
   );

@@ -4,12 +4,11 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = ({
-  photos, 
-  setFavorites, 
+  photos,
+  favorites,
+  updateFavorites, 
   setDisplayModal, 
-  setPhotoSelected, 
-  favSelected, 
-  setFavSelected
+  setPhotoSelected,
 }) => {
   return (
     <ul className="photo-list">
@@ -17,11 +16,10 @@ const PhotoList = ({
         <PhotoListItem 
           key={photo.id} 
           photo={photo} 
-          setFavorites={setFavorites}
+          favorites={favorites}
+          updateFavorites={updateFavorites}
           setDisplayModal={setDisplayModal}
           setPhotoSelected={setPhotoSelected}
-          favSelected={favSelected}
-          setFavSelected={setFavSelected}
         />
        ))}
     </ul>

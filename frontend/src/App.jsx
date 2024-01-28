@@ -11,14 +11,24 @@ const App = () => {
   // Manage state of favorites list
   const [favorites, setFavorites] = useState([])
 
-  // Manage state of favorite button
-  const [favSelected, setFavSelected] = useState(false);
-
   // Manage state for side peek modal
   const [displayModal, setDisplayModal] = useState(false)
 
   // Manage state for selected photo
   const [photoSelected, setPhotoSelected] = useState();
+
+  const updateFavorites = (id) => {
+    setFavorites(prevFavorites => {
+      console.log(favorites)
+      if (prevFavorites.includes(id)) {
+        // Remove the element if it exists
+        return prevFavorites.filter(fav => fav !== id);
+      } else {
+        // Add the element if it doesn't exist
+        return [...prevFavorites, id]
+      }
+    })
+  }
 
   return (
     <div className="App">
@@ -26,17 +36,15 @@ const App = () => {
         photos={photos} 
         topics={topics}
         favorites={favorites} 
-        setFavorites={setFavorites}
+        updateFavorites={updateFavorites}
         setDisplayModal={setDisplayModal}
         setPhotoSelected={setPhotoSelected}
-        setFavSelected={setFavSelected}
       />
       {displayModal && <PhotoDetailsModal 
                         setDisplayModal={setDisplayModal} 
                         photoSelected={photoSelected}
-                        setFavorites={setFavorites}
-                        favSelected={favSelected}
-                        setFavSelected={setFavSelected}
+                        favorites={favorites}
+                        updateFavorites={updateFavorites}
                         setPhotoSelected={setPhotoSelected}
                         />}
     </div>
