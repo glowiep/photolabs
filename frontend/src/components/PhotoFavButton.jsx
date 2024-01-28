@@ -5,7 +5,7 @@ import '../styles/PhotoFavButton.scss';
 
 
 function PhotoFavButton(props) {
-  const {setFavorites, id, setSelected, selected} = props;
+  const {favorites, setFavorites, id, setSelected, selected} = props;
 
   const handleClick = () => {
     setFavorites(prevFavorites => {
