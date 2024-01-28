@@ -16,12 +16,9 @@ const PhotoDetailsModal = ({
   const {id, user, urls, location, similar_photos} = photoSelected
   const photos = Object.values(similar_photos);
 
-  const handleCloseButton = () => {
-    setDisplayModal(false);
-  }
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={handleCloseButton}>
+      <button className="photo-details-modal__close-button" onClick={() => {setDisplayModal(false)}}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
       
