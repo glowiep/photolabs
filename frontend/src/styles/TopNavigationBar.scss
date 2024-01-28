@@ -4,15 +4,16 @@
   justify-content: space-between;
   padding: 8px;
   align-items: center;
-  -webkit-box-shadow: 0 4px 6px -6px #222;
-  -moz-box-shadow: 0 4px 6px -6px #222;
-  box-shadow: 0 4px 6px -6px #222;
+  // -webkit-box-shadow: 0 4px 6px -6px #222;
+  // -moz-box-shadow: 0 4px 6px -6px #222;
+  // box-shadow: 0 4px 6px -6px #222;
   height: 72px;
+  font-weight: 700;
 }
 
 .top-nav-bar__logo {
   text-decoration: overline;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 24px;
   color: #111;
   text-underline-position: auto;
