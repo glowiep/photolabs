@@ -5,21 +5,27 @@ import '../styles/PhotoFavButton.scss';
 
 
 function PhotoFavButton(props) {
-  const {favPhotoCount, setFavPhotoCount} = props;
-  const [favorite, setFavorite] = useState(false)
+  const {favorites, setFavorites, id} = props;
+  const [selected, setSelected] = useState(false);
   
   const handleClick = () => {
-    setFavorite(prevFavorite => {
-      const incrementValue = prevFavorite ? -1 : 1; // If it was already a favorite, decrement count
-      setFavPhotoCount(prevFavCount => prevFavCount + incrementValue)
-      return !prevFavorite;
-    });
+    setFavorites(prevFavorites => {
+      if (prevFavorites.includes(id)) {
+        setSelected(false)
+        // Remove the element if it exists
+        return prevFavorites.filter(fav => fav !== id);
+      } else {
+        setSelected(true);
+        // Add the element if it doesn't exist
+        return [...prevFavorites, id]
+      }
+      })
   };
 
   return (
     <div className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg" onClick={handleClick} >
-        <FavIcon selected={favorite}/>
+        <FavIcon selected={selected}/>
       </div>
     </div>
   );

@@ -5,12 +5,12 @@ import TopNavigation from 'components/TopNavigationBar';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = ({photos, topics}) => {
-  const [favPhotoCount, setFavPhotoCount] = useState(0)
+  const [favorites, setFavorites] = useState([])
 
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} isFavPhotoExist={favPhotoCount}/>
-      <PhotoList photos={photos} favPhotoCount={favPhotoCount} setFavPhotoCount={setFavPhotoCount}/>
+      <TopNavigation topics={topics} isFavPhotoExist={favorites.length}/>
+      <PhotoList photos={photos} favorites={favorites} setFavorites={setFavorites}/>
     </div>
   );
 };
