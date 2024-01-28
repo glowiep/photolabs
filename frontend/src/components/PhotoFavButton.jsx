@@ -6,8 +6,8 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
   const {setFavorites, id, setSelected, selected} = props;
-  
-  const handleFavoritesList = () => {
+
+  const handleClick = () => {
     setFavorites(prevFavorites => {
       if (prevFavorites.includes(id)) {
         // Remove the element if it exists
@@ -16,16 +16,9 @@ function PhotoFavButton(props) {
         // Add the element if it doesn't exist
         return [...prevFavorites, id]
       }
-      })
-  };
+    })
 
-  const handleFavoritesIcon =() => {
-    setSelected(prevSelected => prevSelected === true ? false : true)
-  }
-
-  const handleClick = () => {
-    handleFavoritesList();
-    handleFavoritesIcon();
+    setSelected(prevSelected => !prevSelected)
   }
 
   return (
