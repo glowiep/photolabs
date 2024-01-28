@@ -33,7 +33,14 @@ const PhotoDetailsModal = ({
               <span className="photo-list__user-location">{location.city}, {location.country}</span>
             </div>
         </div>
+        
+        <div className="photo-details-modal__header">Similar Photos</div>
+
+        <div>
+          
+        </div>
       </div>
+
     </div>
   )
 };
