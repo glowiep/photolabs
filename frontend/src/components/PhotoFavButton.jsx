@@ -5,7 +5,7 @@ import '../styles/PhotoFavButton.scss';
 
 
 function PhotoFavButton(props) {
-  const {favorites, setFavorites, id, setSelected, selected} = props;
+  const {favorites, setFavorites, id, setFavSelected, favSelected} = props;
 
   const handleClick = () => {
     setFavorites(prevFavorites => {
@@ -18,13 +18,14 @@ function PhotoFavButton(props) {
       }
     })
 
-    setSelected(prevSelected => !prevSelected)
-  }
+    setFavSelected(prevFavSelected => !prevFavSelected)
+    console.log(favSelected)
+  } 
 
   return (
     <div className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg" onClick={handleClick} >
-        <FavIcon selected={selected}/>
+        <FavIcon favSelected={favSelected}/>
       </div>
     </div>
   );

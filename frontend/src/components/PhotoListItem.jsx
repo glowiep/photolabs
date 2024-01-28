@@ -8,11 +8,15 @@ const PhotoListItem = (props) => {
   const {favorites, setFavorites} = props;
   const id = props.photo.id;
 
-  const [selected, setSelected] = useState(false);
+  const [favSelected, setFavSelected] = useState(false);
+
+  const handleClick = () => {
+
+  }
 
   return (
-    <div className="photo-list__item">
-      <PhotoFavButton setFavorites={setFavorites} id={id} setSelected={setSelected} selected={selected}/>
+    <div className="photo-list__item" onClick={handleClick}>
+      <PhotoFavButton setFavorites={setFavorites} id={id} setFavSelected={setFavSelected} favSelected={favSelected}/>
       <img src={urls.regular} className="photo-list__image"></img>
       <div className="photo-list__user-info photo-list__user-details">
         <img src={user.profile} className="photo-list__user-profile"></img>
