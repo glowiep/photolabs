@@ -17,7 +17,6 @@ function PhotoFavButton({favorites, setFavorites, id, setFavSelected, favSelecte
     })
 
     setFavSelected(prevFavSelected => !prevFavSelected)
-    console.log(favSelected)
   } 
 
   return (

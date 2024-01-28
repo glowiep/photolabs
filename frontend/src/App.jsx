@@ -8,15 +8,21 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+  // Manage state for side peek modal
   const [displayModal, setDisplayModal] = useState(false)
+
+  // Manage state for selected photo
+  const [photoSelected, setPhotoSelected] = useState();
+
   return (
     <div className="App">
       <HomeRoute 
         photos={photos} 
         topics={topics}
         setDisplayModal={setDisplayModal}
+        setPhotoSelected={setPhotoSelected}
       />
-      {displayModal && <PhotoDetailsModal setDisplayModal={setDisplayModal}/>}
+      {displayModal && <PhotoDetailsModal setDisplayModal={setDisplayModal} photoSelected={photoSelected}/>}
     </div>
   );
 };

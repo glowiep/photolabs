@@ -3,7 +3,8 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 
-const PhotoDetailsModal = ({setDisplayModal}) => {
+const PhotoDetailsModal = ({setDisplayModal, photoSelected}) => {
+  console.log(photoSelected)
   const handleCloseButton = () => {
     setDisplayModal(false);
   }

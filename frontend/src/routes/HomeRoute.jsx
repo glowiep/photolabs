@@ -4,7 +4,7 @@ import TopNavigation from 'components/TopNavigationBar';
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({photos, topics, setDisplayModal}) => {
+const HomeRoute = ({photos, topics, setDisplayModal, setPhotoSelected}) => {
   const [favorites, setFavorites] = useState([])
 
   return (
@@ -15,6 +15,7 @@ const HomeRoute = ({photos, topics, setDisplayModal}) => {
         favorites={favorites} 
         setFavorites={setFavorites}
         setDisplayModal={setDisplayModal}
+        setPhotoSelected={setPhotoSelected}
       />
     </div>
   );
