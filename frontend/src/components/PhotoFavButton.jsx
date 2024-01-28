@@ -4,7 +4,7 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 
-function PhotoFavButton({favorites, setFavorites, id, setFavSelected, favSelected}) {
+function PhotoFavButton({setFavorites, id, setFavSelected, favSelected}) {
   const handleClick = () => {
     setFavorites(prevFavorites => {
       if (prevFavorites.includes(id)) {
