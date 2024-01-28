@@ -37,6 +37,7 @@ const App = () => {
                         setFavorites={setFavorites}
                         favSelected={favSelected}
                         setFavSelected={setFavSelected}
+                        setPhotoSelected={setPhotoSelected}
                         />}
     </div>
   );

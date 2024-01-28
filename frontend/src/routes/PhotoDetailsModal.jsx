@@ -3,16 +3,19 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoFavButton from 'components/PhotoFavButton';
+import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = ({
   setDisplayModal, 
   photoSelected, 
   setFavorites,
   favSelected,
-  setFavSelected
+  setFavSelected,
+  setPhotoSelected
 }) => {
-  console.log(photoSelected)
-  const {id, user, urls, location} = photoSelected
+  const {id, user, urls, location, similar_photos} = photoSelected
+  const photos = Object.values(similar_photos);
+
   const handleCloseButton = () => {
     setDisplayModal(false);
   }
@@ -36,8 +39,15 @@ const PhotoDetailsModal = ({
         
         <div className="photo-details-modal__header">Similar Photos</div>
 
-        <div>
-          
+        <div className="photo-details-modal__images">
+          <PhotoList 
+            photos={photos}
+            setFavorites={setFavorites}
+            setDisplayModal={setDisplayModal}
+            setPhotoSelected={setPhotoSelected}
+            favSelected={favSelected}
+            setFavSelected={setFavSelected}
+           />
         </div>
       </div>
 
