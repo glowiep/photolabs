@@ -38,6 +38,7 @@ const PhotoDetailsModal = ({
         <div className="photo-details-modal__images">
           <PhotoList 
             photos={photos}
+            favorites={favorites}
             updateFavorites={updateFavorites}
             setDisplayModal={setDisplayModal}
             setPhotoSelected={setPhotoSelected}
