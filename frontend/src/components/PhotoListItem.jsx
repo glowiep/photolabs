@@ -5,14 +5,14 @@ import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
   const {urls, location, user} = props.photo;
-  const {favorites, setFavorites} = props;
+  const {setFavorites} = props;
   const id = props.photo.id;
 
   const [selected, setSelected] = useState(false);
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton favorites={favorites} setFavorites={setFavorites} id={id} setSelected={setSelected} selected={selected}/>
+      <PhotoFavButton setFavorites={setFavorites} id={id} setSelected={setSelected} selected={selected}/>
       <img src={urls.regular} className="photo-list__image"></img>
       <div className="photo-list__user-info photo-list__user-details">
         <img src={user.profile} className="photo-list__user-profile"></img>
