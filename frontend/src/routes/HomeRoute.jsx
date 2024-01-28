@@ -4,7 +4,7 @@ import TopNavigation from 'components/TopNavigationBar';
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({photos, topics, displayModal, setDisplayModal}) => {
+const HomeRoute = ({photos, topics, setDisplayModal}) => {
   const [favorites, setFavorites] = useState([])
 
   return (
