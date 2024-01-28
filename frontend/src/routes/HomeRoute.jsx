@@ -14,7 +14,6 @@ const HomeRoute = ({photos, topics, displayModal, setDisplayModal}) => {
         photos={photos} 
         favorites={favorites} 
         setFavorites={setFavorites}
-        displayModal={displayModal}
         setDisplayModal={setDisplayModal}
       />
     </div>

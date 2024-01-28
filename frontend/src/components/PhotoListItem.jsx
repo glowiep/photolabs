@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react';
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
 
-const PhotoListItem = ({photo, favorites, setFavorites, displayModal, setDisplayModal}) => {
+const PhotoListItem = ({photo, favorites, setFavorites, setDisplayModal}) => {
   const {urls, location, user} = photo;
   const id = photo.id;
 
