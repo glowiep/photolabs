@@ -3,19 +3,18 @@ import React, { useCallback, useState } from 'react';
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
 
-const PhotoListItem = (props) => {
-  const {urls, location, user} = props.photo;
-  const {favorites, setFavorites} = props;
-  const id = props.photo.id;
+const PhotoListItem = ({photo, favorites, setFavorites, displayModal, setDisplayModal}) => {
+  const {urls, location, user} = photo;
+  const id = photo.id;
 
   const [favSelected, setFavSelected] = useState(false);
 
-  const handleClick = () => {
-
+  const handlePhotoClick = () => {
+    return setDisplayModal(prevDisplayModal => !prevDisplayModal);
   }
 
   return (
-    <div className="photo-list__item" onClick={handleClick}>
+    <div className="photo-list__item" onClick={handlePhotoClick}>
       <PhotoFavButton setFavorites={setFavorites} id={id} setFavSelected={setFavSelected} favSelected={favSelected}/>
       <img src={urls.regular} className="photo-list__image"></img>
       <div className="photo-list__user-info photo-list__user-details">
