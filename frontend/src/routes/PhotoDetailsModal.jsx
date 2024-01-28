@@ -24,7 +24,7 @@ const PhotoDetailsModal = ({
       
       <div className="photo-details-modal__images">
         <PhotoFavButton setFavorites={setFavorites} id={id} setFavSelected={setFavSelected} favSelected={favSelected}/>
-        <img src={urls.full} className="photo-details-modal__image" alt="Large size photo by user"></img>
+        <img src={urls.full} className="photo-details-modal__image" alt={`Large size photo by ${user.username}`}></img>
         <div className="photo-list__user-info photo-list__user-details">
           <img src={user.profile} className="photo-list__user-profile" alt="User's profile picture"></img>
             <div>
