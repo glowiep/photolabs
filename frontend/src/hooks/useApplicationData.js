@@ -8,9 +8,6 @@ const useApplicationData = () => {
     photoSelected: null
   });
 
-  // Destructure values from state
-  const { favorites, displayModal, photoSelected } = state;
-
   /**
    * This is used to update the array of photo ids 
    * that are added to Favorites.
@@ -52,8 +49,6 @@ const useApplicationData = () => {
 
   return {
     state,
-    favorites,
-    displayModal,
     updateToFavPhotoIds,
     onPhotoSelect,
     onClosePhotoDetailsModal

@@ -17,7 +17,7 @@ const PhotoDetailsModal = ({
 
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={() => {() => onClosePhotoDetailsModal}}>
+      <button className="photo-details-modal__close-button" onClick={onClosePhotoDetailsModal}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
       
