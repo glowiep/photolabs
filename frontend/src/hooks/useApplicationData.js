@@ -2,33 +2,31 @@ import React, {useState} from 'react';
 
 const useApplicationData = () => {
   // Entire state of the application
-  const [state, setState] = useState();
+  const [state, setState] = useState({
+    favorites: [],
+    displayModal: false,
+    photoSelected: null
+  });
 
-  // Manage state of favorites list
-  const [favorites, setFavorites] = useState([])
-
-  // Manage state for side peek modal
-  const [displayModal, setDisplayModal] = useState(false)
-
-  // Manage state for selected photo
-  const [photoSelected, setPhotoSelected] = useState();
-
-  // This is used to set the favourite photos
+  // Destructure values from state
+  const { favorites, displayModal, photoSelected } = state;
 
   /**
+   * This is used to update the array of photo ids 
+   * that are added to Favorites.
    * @function
    * @param {string} id 
    * @returns {array}
    */
   const updateToFavPhotoIds = (id) => {
-    setFavorites(prevFavorites => {
-      console.log(favorites)
+    setState((prevState) => {
+      const prevFavorites = prevState.favorites;
       if (prevFavorites.includes(id)) {
         // Remove the element if it exists
-        return prevFavorites.filter(fav => fav !== id);
+        return {...prevState, favorites: prevFavorites.filter(fav => fav !== id)};
       } else {
         // Add the element if it doesn't exist
-        return [...prevFavorites, id]
+        return {...prevState, favorites: [...prevFavorites, id]};
       }
     });
   };
@@ -41,16 +39,15 @@ const useApplicationData = () => {
    * @param {object} photo object with details
    */
   const onPhotoSelect = (photo) => {
-    setPhotoSelected(photo)
-    setDisplayModal(prevDisplayModal => !prevDisplayModal);
-  }
+    setState((prevState) => ({...prevState, photoSelected: photo, displayModal: !prevState.displayModal}));
+  };
 
   /**
    * Action to close the modal
    * @function
    */
   const onClosePhotoDetailsModal = () => {
-    return setDisplayModal(false);
+    setState((prevState) => ({ ...prevState, displayModal: false }));
   };
 
   return {

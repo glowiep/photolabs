@@ -10,9 +10,7 @@ import useApplicationData from 'hooks/useApplicationData';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const {
-    state,
-    favorites,
-    displayModal,
+    state: { favorites, displayModal, photoSelected },
     updateToFavPhotoIds,
     onPhotoSelect,
     onClosePhotoDetailsModal
