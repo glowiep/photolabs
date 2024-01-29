@@ -6,11 +6,10 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = ({
   photos, 
-  topics, 
-  setDisplayModal, 
-  setPhotoSelected, 
-  favorites, 
-  updateFavorites
+  topics,
+  favorites,
+  onPhotoSelect, 
+  updateToFavPhotoIds
 }) => {
   return (
     <div className="home-route">
@@ -18,9 +17,8 @@ const HomeRoute = ({
       <PhotoList 
         photos={photos}
         favorites={favorites}
-        updateFavorites={updateFavorites}
-        setDisplayModal={setDisplayModal}
-        setPhotoSelected={setPhotoSelected}
+        updateToFavPhotoIds={updateToFavPhotoIds}
+        onPhotoSelect={onPhotoSelect}
       />
     </div>
   );

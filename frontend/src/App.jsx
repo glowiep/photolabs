@@ -5,30 +5,18 @@ import HomeRoute from 'routes/HomeRoute';
 import photos from './mocks/photos';
 import topics from './mocks/topics';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
+import useApplicationData from 'hooks/useApplicationData';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  // Manage state of favorites list
-  const [favorites, setFavorites] = useState([])
-
-  // Manage state for side peek modal
-  const [displayModal, setDisplayModal] = useState(false)
-
-  // Manage state for selected photo
-  const [photoSelected, setPhotoSelected] = useState();
-
-  const updateFavorites = (id) => {
-    setFavorites(prevFavorites => {
-      console.log(favorites)
-      if (prevFavorites.includes(id)) {
-        // Remove the element if it exists
-        return prevFavorites.filter(fav => fav !== id);
-      } else {
-        // Add the element if it doesn't exist
-        return [...prevFavorites, id]
-      }
-    })
-  }
+  const {
+    state,
+    favorites,
+    displayModal,
+    updateToFavPhotoIds,
+    onPhotoSelect,
+    onClosePhotoDetailsModal
+  } = useApplicationData();
 
   return (
     <div className="App">
@@ -36,16 +24,15 @@ const App = () => {
         photos={photos} 
         topics={topics}
         favorites={favorites} 
-        updateFavorites={updateFavorites}
-        setDisplayModal={setDisplayModal}
-        setPhotoSelected={setPhotoSelected}
+        updateToFavPhotoIds={updateToFavPhotoIds}
+        onPhotoSelect={onPhotoSelect}
       />
       {displayModal && <PhotoDetailsModal 
-                        setDisplayModal={setDisplayModal} 
                         photoSelected={photoSelected}
                         favorites={favorites}
-                        updateFavorites={updateFavorites}
-                        setPhotoSelected={setPhotoSelected}
+                        updateToFavPhotoIds={updateToFavPhotoIds}
+                        onPhotoSelect={onPhotoSelect}
+                        onClosePhotoDetailsModal={onClosePhotoDetailsModal}
                         />}
     </div>
   );

@@ -6,9 +6,8 @@ import PhotoListItem from "./PhotoListItem";
 const PhotoList = ({
   photos,
   favorites,
-  updateFavorites, 
-  setDisplayModal, 
-  setPhotoSelected,
+  updateToFavPhotoIds,
+  onPhotoSelect,
 }) => {
   return (
     <ul className="photo-list">
@@ -17,9 +16,8 @@ const PhotoList = ({
           key={photo.id} 
           photo={photo} 
           favorites={favorites}
-          updateFavorites={updateFavorites}
-          setDisplayModal={setDisplayModal}
-          setPhotoSelected={setPhotoSelected}
+          updateToFavPhotoIds={updateToFavPhotoIds}
+          onPhotoSelect={onPhotoSelect}
         />
        ))}
     </ul>
