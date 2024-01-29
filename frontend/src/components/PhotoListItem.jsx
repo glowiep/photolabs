@@ -16,7 +16,7 @@ const PhotoListItem = ({
   return (
     <div className="photo-list__item">
       <PhotoFavButton favorites={favorites} updateToFavPhotoIds={updateToFavPhotoIds} id={id}/>
-      <img src={urls.regular} className="photo-list__image" onClick={onPhotoSelect(photo)} alt={`Regular size photo by ${user.username}`}></img>
+      <img src={urls.regular} className="photo-list__image" onClick={() => {onPhotoSelect(photo)}} alt={`Regular size photo by ${user.username}`}></img>
       <div className="photo-list__user-info photo-list__user-details">
         <img src={user.profile} className="photo-list__user-profile" alt="User's profile picture"></img>
         <div>

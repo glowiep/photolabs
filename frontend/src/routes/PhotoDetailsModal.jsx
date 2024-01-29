@@ -6,13 +6,12 @@ import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = ({
-  photoSelected, 
-  favorites,
-  updateToFavPhotoIds,
+  state,
   onPhotoSelect,
+  updateToFavPhotoIds,
   onClosePhotoDetailsModal
 }) => {
-  const {id, user, urls, location, similar_photos} = photoSelected
+  const {id, user, urls, location, similar_photos} = state.photoSelected
   const photos = Object.values(similar_photos);
 
   return (
@@ -22,7 +21,7 @@ const PhotoDetailsModal = ({
       </button>
       
       <div className="photo-details-modal__images">
-        <PhotoFavButton favorites={favorites} updateToFavPhotoIds={updateToFavPhotoIds} id={id}/>
+        <PhotoFavButton favorites={state.favorites} updateToFavPhotoIds={updateToFavPhotoIds} id={id}/>
         <img src={urls.full} className="photo-details-modal__image" alt={`Large size photo by ${user.username}`}></img>
         <div className="photo-details-modal__photographer-info photo-details-modal__photographer-details">
           <img src={user.profile} className="photo-details-modal__photographer-profile" alt="User's profile picture"></img>
@@ -38,7 +37,7 @@ const PhotoDetailsModal = ({
         <div className="photo-details-modal__header">Similar Photos</div>
         <PhotoList 
           photos={photos}
-          favorites={favorites}
+          favorites={state.favorites}
           updateToFavPhotoIds={updateToFavPhotoIds}
           onPhotoSelect={onPhotoSelect}
           />

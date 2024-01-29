@@ -36,7 +36,7 @@ const useApplicationData = () => {
    * @param {object} photo object with details
    */
   const onPhotoSelect = (photo) => {
-    setState((prevState) => ({...prevState, photoSelected: photo, displayModal: !prevState.displayModal}));
+    setState((prevState) => ({...prevState, photoSelected: photo, displayModal: true}));
   };
 
   /**
