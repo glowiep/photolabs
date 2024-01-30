@@ -12,34 +12,36 @@ export const ACTIONS = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case ADD_FAV_PHOTO:
+    case ACTIONS.ADD_FAV_PHOTO:
       return {
         ...state,
         favorites: [...state.favorites, action.payload]
       }
-    case REMOVE_FAV_PHOTO:
+    case ACTIONS.REMOVE_FAV_PHOTO:
       const favPhotoArray = [...state.favorites]
       return {
         ...state,
         favorites: [favPhotoArray.filter(fav => fav != action.payload)]
       }
-    case SET_PHOTO_DATA:
+    case ACTIONS.SET_PHOTO_DATA:
       return {
         ...state
       }
-    case SET_TOPIC_DATA:
+    case ACTIONS.SET_TOPIC_DATA:
       return {
         ...state
       }
-    case SELECT_PHOTO:
+    case ACTIONS.SELECT_PHOTO:
       return {
         ...state,
         photoSelected: action.payload,
         displayModal: true
       }
-    case DISPLAY_PHOTO_DETAILS:
-      return {}
-    case CLOSE_MODAL:
+    case ACTIONS.DISPLAY_PHOTO_DETAILS:
+      return {
+        ...state
+      }
+    case ACTIONS.CLOSE_MODAL:
       return {
         ...state,
         photoSelected: null,
