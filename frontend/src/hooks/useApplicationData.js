@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, {useEffect, useReducer} from 'react';
 
 export const ACTIONS = {
   ADD_FAV_PHOTO: 'ADD_FAV_PHOTO',
@@ -25,11 +25,11 @@ function reducer(state, action) {
       }
     case ACTIONS.SET_PHOTO_DATA:
       return {
-        ...state
+        ...state, photoData: action.payload
       }
     case ACTIONS.SET_TOPIC_DATA:
       return {
-        ...state
+        ...state, topicData: action.payload
       }
     case ACTIONS.SELECT_PHOTO:
       return {
@@ -65,6 +65,22 @@ const INITIAL_STATE = {
 const useApplicationData = () => {
   // Entire state of the application
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
+
+  useEffect(() => {
+    fetch('/api/photos')
+      .then(res => res.json())
+      .then(data => {
+        dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data})
+      })
+  }, []);
+
+  useEffect(() => {
+    fetch('/api/topics')
+      .then(res => res.json())
+      .then(data => {
+        dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data})
+      })
+  }, []);
 
   /**
    * This is used to update the array of photo ids 
