@@ -1,4 +1,5 @@
 import React, {useEffect, useReducer} from 'react';
+import useFetchData from './fetchData';
 
 export const ACTIONS = {
   ADD_FAV_PHOTO: 'ADD_FAV_PHOTO',
@@ -20,7 +21,7 @@ function reducer(state, action) {
     case ACTIONS.REMOVE_FAV_PHOTO:
       return {
         ...state,
-        favorites: [...state.favorites.filter(fav => fav != action.payload)]
+        favorites: [...state.favorites.filter(fav => fav !== action.payload)]
       }
     case ACTIONS.SET_PHOTO_DATA:
       return {
@@ -65,22 +66,27 @@ const useApplicationData = () => {
   // Entire state of the application
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
-  useEffect(() => {
-    fetch('/api/photos')
-      .then(res => res.json())
-      .then(data => {
-        dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data})
-      })
-  }, []);
+  useFetchData('/api/photos', "photoData", dispatch);
+  useFetchData('/api/topics', "topicData", dispatch);
 
-  useEffect(() => {
-    fetch('/api/topics')
-      .then(res => res.json())
-      .then(data => {
-        dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data})
-      })
-  }, []);
+  // useEffect(() => {
+  //   fetch('/api/photos')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data})
+  //     })
+  // }, []);
 
+  // useEffect(() => {
+  //   fetch('/api/topics')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data})
+  //     })
+  // }, []);
+
+  
+  
   /**
    * This is used to update the array of photo ids 
    * that are added to Favorites.
