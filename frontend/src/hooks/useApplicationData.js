@@ -1,5 +1,5 @@
-import React, {useEffect, useReducer} from 'react';
-import useFetchData from './fetchData';
+import React, { useReducer} from 'react';
+import useFetchData from './useFetchData';
 
 export const ACTIONS = {
   ADD_FAV_PHOTO: 'ADD_FAV_PHOTO',
@@ -68,24 +68,6 @@ const useApplicationData = () => {
 
   useFetchData('/api/photos', "photoData", dispatch);
   useFetchData('/api/topics', "topicData", dispatch);
-
-  // useEffect(() => {
-  //   fetch('/api/photos')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data})
-  //     })
-  // }, []);
-
-  // useEffect(() => {
-  //   fetch('/api/topics')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       dispatch({type: ACTIONS.SET_TOPIC_DATA, payload: data})
-  //     })
-  // }, []);
-
-  
   
   /**
    * This is used to update the array of photo ids 
