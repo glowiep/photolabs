@@ -18,10 +18,9 @@ function reducer(state, action) {
         favorites: [...state.favorites, action.payload]
       }
     case ACTIONS.REMOVE_FAV_PHOTO:
-      const favPhotoArray = [...state.favorites]
       return {
         ...state,
-        favorites: [favPhotoArray.filter(fav => fav != action.payload)]
+        favorites: [...state.favorites.filter(fav => fav != action.payload)]
       }
     case ACTIONS.SET_PHOTO_DATA:
       return {
