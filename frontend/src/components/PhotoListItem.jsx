@@ -12,7 +12,6 @@ const PhotoListItem = ({
   const {urls, location, user} = photo;
   const id = photo.id;
 
-
   return (
     <div className="photo-list__item">
       <PhotoFavButton favorites={favorites} updateToFavPhotoIds={updateToFavPhotoIds} id={id}/>

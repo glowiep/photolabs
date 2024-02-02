@@ -1,4 +1,4 @@
-import React, { useReducer} from 'react';
+import React, { useEffect, useReducer} from 'react';
 import useFetchData from './useFetchData';
 
 export const ACTIONS = {
@@ -44,7 +44,8 @@ function reducer(state, action) {
       }
     case ACTIONS.DISPLAY_PHOTO_DETAILS:
       return {
-        ...state
+        ...state,
+        photoSelected: action.payload
       }
     case ACTIONS.CLOSE_MODAL:
       return {
@@ -104,13 +105,23 @@ const useApplicationData = () => {
 
 
   /**
-   * Open modal view when the user selects a photo
-   * This will call two functions: setPhotoSelected and setDisplayModel
+   * Shows the large image in the modal when the user selects a photo
+   * Modal display will open if it was not already showing.
    * @function
    * @param {object} photo object with details
    */
   const onPhotoSelect = (photo) => {
-    dispatch({type: ACTIONS.SELECT_PHOTO, payload: photo})
+    if (state.displayModal) { // If the modal is already open
+      // Redisplay the large image 
+      const photo_id = photo.id;
+      const allPhotos = state.photoData;
+      const newPhotoInModal = allPhotos.filter((p) => p.id === photo_id);
+
+      dispatch({type: ACTIONS.DISPLAY_PHOTO_DETAILS, payload: newPhotoInModal[0]})
+
+    } else {  // If modal is not open
+      dispatch({type: ACTIONS.SELECT_PHOTO, payload: photo})
+    }
   };
 
   /**
