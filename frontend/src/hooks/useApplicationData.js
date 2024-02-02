@@ -6,6 +6,7 @@ export const ACTIONS = {
   REMOVE_FAV_PHOTO: 'REMOVE_FAV_PHOTO',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   CLOSE_MODAL: 'CLOSE_MODAL'
@@ -30,6 +31,10 @@ function reducer(state, action) {
     case ACTIONS.SET_TOPIC_DATA:
       return {
         ...state, topicData: action.payload
+      }
+    case ACTIONS.GET_PHOTOS_BY_TOPICS:
+      return {
+        ...state, photoData: action.payload
       }
     case ACTIONS.SELECT_PHOTO:
       return {
@@ -86,6 +91,17 @@ const useApplicationData = () => {
       }
   };
 
+  /**
+   * Fetch different image categories when users click on specific photo topics in top navigation
+   * @function
+   * @returns {array}
+   */
+  const getPhotosByTopics = (topic_id) => {
+    fetch(`/api/topics/photos/${topic_id}`)
+      .then(res => res.json())
+      .then(data => dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data}));    
+  };
+
 
   /**
    * Open modal view when the user selects a photo
@@ -108,6 +124,7 @@ const useApplicationData = () => {
   return {
     state,
     updateToFavPhotoIds,
+    getPhotosByTopics,
     onPhotoSelect,
     onClosePhotoDetailsModal
   };

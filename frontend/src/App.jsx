@@ -8,6 +8,7 @@ const App = () => {
   const {
     state,
     updateToFavPhotoIds,
+    getPhotosByTopics,
     onPhotoSelect,
     onClosePhotoDetailsModal
   } = useApplicationData();
@@ -17,7 +18,8 @@ const App = () => {
       <HomeRoute 
         photos={state.photoData} 
         topics={state.topicData}
-        favorites={state.favorites} 
+        favorites={state.favorites}
+        getPhotosByTopics={getPhotosByTopics}
         updateToFavPhotoIds={updateToFavPhotoIds}
         onPhotoSelect={onPhotoSelect}
       />

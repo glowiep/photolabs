@@ -8,12 +8,13 @@ const HomeRoute = ({
   photos, 
   topics,
   favorites,
+  getPhotosByTopics,
   onPhotoSelect, 
   updateToFavPhotoIds
 }) => {
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} isFavPhotoExist={favorites.length}/>
+      <TopNavigation topics={topics} isFavPhotoExist={favorites.length} getPhotosByTopics={getPhotosByTopics}/>
       <PhotoList 
         photos={photos}
         favorites={favorites}
