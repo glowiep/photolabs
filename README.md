@@ -8,8 +8,11 @@ PhotoLabs is a React-based single-page application (SPA) that allows users to vi
 - The user can navigate to different photo categories, also called topics.
 - The user can like a photo from anywhere within the application where the photo is displayed.
 - The user can click on a photo to view a larger version of the photo and relevant / similar photos.
+
 ![Photolabs home page](docs/PhotoLabs.png)
+
 ![Photolabs Modal](docs/open-modal-1.png)
+
 ![Photolabs home page](docs/open-modal-2.png)
 
 ## 🏆 Goals
@@ -30,7 +33,7 @@ cd frontend
 npm start
 ```
 
-## [Backend] Running Backend Servier
+## [Backend] Running Backend Server
 
 Read `backend/readme` for further setup details.
 
