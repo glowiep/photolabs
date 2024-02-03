@@ -1,4 +1,4 @@
-# Photolabs
+# Photolabs 🌇 🌉 🌄
 This is a PhotoLabs project for the Web Development React course programming.
 
 PhotoLabs is a React-based single-page application (SPA) that allows users to view photos in different contexts. A pre-existing API is utilized to build a frontend user experience for users to interact with photos.
