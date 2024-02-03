@@ -3,13 +3,15 @@ import React from 'react';
 import '../styles/TopNavigationBar.scss'
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
+import useApplicationData from '../hooks/useApplicationData';
 
-const TopNavigation = (props) => {
+const TopNavigation = () => {
+  const { state } = useApplicationData();
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-        <TopicList topics={props.topics} getPhotosByTopics={props.getPhotosByTopics}/>
-        <FavBadge isFavPhotoExist={props.isFavPhotoExist} />      
+        <TopicList />
+        <FavBadge isFavPhotoExist={state.favorites.length} />      
     </div>
   )
 }

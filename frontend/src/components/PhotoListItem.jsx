@@ -1,20 +1,17 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 
+import useApplicationData from 'hooks/useApplicationData';
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
 
-const PhotoListItem = ({
-  photo, 
-  favorites, 
-  updateToFavPhotoIds, 
-  onPhotoSelect
-}) => {
+const PhotoListItem = ({ photo }) => {
   const {urls, location, user} = photo;
   const id = photo.id;
+  const { onPhotoSelect } = useApplicationData();
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton favorites={favorites} updateToFavPhotoIds={updateToFavPhotoIds} id={id}/>
+      <PhotoFavButton id={id}/>
       <img src={urls.regular} className="photo-list__image" onClick={() => {onPhotoSelect(photo)}} alt={`Regular size photo by ${user.username}`}></img>
       <div className="photo-list__user-info photo-list__user-details">
         <img src={user.profile} className="photo-list__user-profile" alt="User's profile picture"></img>
