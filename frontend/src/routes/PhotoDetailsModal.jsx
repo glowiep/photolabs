@@ -8,7 +8,7 @@ import useApplicationData from 'hooks/useApplicationData';
 
 const PhotoDetailsModal = () => {
   const { state, onClosePhotoDetailsModal } = useApplicationData();
-  const { id, user, urls, location, similar_photos } = state.photoSelected
+  const { id, user, urls, location, similar_photos } = state.photoSelected;
   // Photos array here differs from the photos array in HomeRoute.jsx
   const photos = Object.values(similar_photos);
 
