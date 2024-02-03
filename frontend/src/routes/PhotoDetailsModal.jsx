@@ -14,9 +14,11 @@ const PhotoDetailsModal = () => {
 
   return (
     <div id="modal-div" className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={onClosePhotoDetailsModal}>
-        <img src={closeSymbol} alt="close symbol" />
-      </button>
+      <div>
+        <button className="photo-details-modal__close-button" onClick={onClosePhotoDetailsModal}>
+          <img src={closeSymbol} alt="close symbol" />
+        </button>
+      </div>
       
       <div className="photo-details-modal__images">
         <PhotoFavButton id={id}/>
