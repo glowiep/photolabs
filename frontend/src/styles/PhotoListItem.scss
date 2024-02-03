@@ -7,6 +7,10 @@
   border-radius: 8px;
   max-width: fit-content;
   background-color: #FFFFFF;
+
+  :hover {
+    cursor: pointer;
+  }
 }
 
 .photo-list__modal_image {
