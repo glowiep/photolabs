@@ -1,5 +1,8 @@
 .fav-badge {
   position: relative;
+  :hover {
+    cursor: pointer;
+  }
 }
 
 .fav-badge__count { 
