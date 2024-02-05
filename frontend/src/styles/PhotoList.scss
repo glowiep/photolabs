@@ -5,10 +5,10 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  justify-content: center;
 }
 
 .photo-list:after {
   content: "";
-  flex: 0 1 30%;
   margin: 5px;
 }
