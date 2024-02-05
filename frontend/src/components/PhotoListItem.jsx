@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Skeleton, Tooltip } from '@mui/material';
 
 import useApplicationData from 'hooks/useApplicationData';
+import useInitialLoading from 'hooks/useInitialLoading';
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = ({ photo }) => {
+  const { state, onPhotoSelect } = useApplicationData();
   
-  const [loading, setLoading] = useState(true)
-  setTimeout(()=>setLoading(false) , 1000)
+  useInitialLoading();
 
-  if (loading) {
+  if (state.loading) {
     // Render skeleton for entire item if photo is not available
     return (
       <div className="photo-list__item">
@@ -20,7 +21,6 @@ const PhotoListItem = ({ photo }) => {
   } else {
     const {urls, location, user} = photo;
     const id = photo.id;
-    const { onPhotoSelect, state } = useApplicationData();
     const { displayModal } = state;
   
     return (

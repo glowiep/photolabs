@@ -11,7 +11,9 @@ export const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   DISPLAY_FAVORITES: 'DISPLAY_FAVORITES',
-  CLOSE_MODAL: 'CLOSE_MODAL'
+  CLOSE_MODAL: 'CLOSE_MODAL',
+  LOADING_TIMEOUT_DONE: 'LOADING_TIMEOUT_DONE',
+  SET_LOADING: 'SET_LOADING'
 }
 
 function reducer(state, action) {
@@ -65,6 +67,11 @@ function reducer(state, action) {
         ...state,
         photoSelected: null,
         displayModal: false
+      }
+    case ACTIONS.SET_LOADING:
+      return {
+        ...state,
+        loading: action.payload
       }
     default:
         throw new Error(

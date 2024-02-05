@@ -102,6 +102,15 @@ const useApplicationData = () => {
     dispatch({type: ACTIONS.CLOSE_MODAL});
   };
 
+  /**
+   * Action to set the loading state
+   * @function
+   * @param {boolean} status - set loading state to true or false
+   */
+  const setLoading = (status) => {
+    dispatch({type: ACTIONS.SET_LOADING, payload: status});
+  };
+
   return {
     state,
     updateToFavPhotoIds,
@@ -110,7 +119,8 @@ const useApplicationData = () => {
     getPhotosByTopics,
     onPhotoSelect,
     onClosePhotoDetailsModal,
-    fetchData
+    fetchData,
+    setLoading
   };
 };
 

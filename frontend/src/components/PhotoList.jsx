@@ -10,7 +10,7 @@ const PhotoList = ({ photos }) => {
 
   return (
     <ul className='photo-list'>
-      {state.displayFavorites && photos.length === 0 && <img src={emptyImage} alt="No photos available"></img> }
+      {state.displayFavorites && photos.length === 0 && <img src={emptyImage} alt="No photos available" className="empty-img"></img> }
       {photos.map((photo) => (
         <PhotoListItem 
           key={photo.id} 
