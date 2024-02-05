@@ -10,6 +10,7 @@ export const ACTIONS = {
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
+  DISPLAY_FAVORITES: 'DISPLAY_FAVORITES',
   CLOSE_MODAL: 'CLOSE_MODAL'
 }
 
@@ -39,7 +40,9 @@ function reducer(state, action) {
       }
     case ACTIONS.GET_PHOTOS_BY_TOPICS:
       return {
-        ...state, photoData: action.payload
+        ...state, 
+        photoData: action.payload,
+        displayFavorites: false
       }
     case ACTIONS.SELECT_PHOTO:
       return {
@@ -51,6 +54,11 @@ function reducer(state, action) {
       return {
         ...state,
         photoSelected: action.payload
+      }
+    case ACTIONS.DISPLAY_FAVORITES:
+      return {
+        ...state,
+        displayFavorites: true
       }
     case ACTIONS.CLOSE_MODAL:
       return {
@@ -70,6 +78,7 @@ const INITIAL_STATE = {
   photoData: [],
   topicData: [],
   displayModal: false,
+  displayFavorites: false,
   photoSelected: null
 }
 

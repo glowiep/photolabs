@@ -6,7 +6,8 @@ import useApplicationData from 'hooks/useApplicationData';
 import '../styles/FavBadge.scss';
 
 const FavBadge = ({ isFavPhotoExist }) => {
-  const { getFavoritePhotos } = useApplicationData();
+  const { getFavoritePhotos, updateFavoritePhotos } = useApplicationData();
+  updateFavoritePhotos();
   return (
     <Tooltip title="Click to display Favorites!">
     <div className='fav-badge' onClick={() => {getFavoritePhotos()}}>

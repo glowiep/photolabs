@@ -1,6 +1,7 @@
 import { useAppContext, ACTIONS } from 'contexts/AppContext';
 import useFetchData from './useFetchData';
 import getFavPhotosData from "utils/helperFunctions";
+import { useEffect } from 'react';
 
 const useApplicationData = () => {
   const { state, dispatch } = useAppContext();
@@ -34,6 +35,8 @@ const useApplicationData = () => {
    * @function
    */
   const getFavoritePhotos = () => {
+    dispatch({type: ACTIONS.DISPLAY_FAVORITES});
+
     // Fetch favorite photos
     fetch('/api/photos')
       .then(res => res.json())
@@ -43,8 +46,16 @@ const useApplicationData = () => {
       })
       .catch(error => {
         console.error("Error fetching favorite photos:", error);
-      });
+    });
   }
+
+  const updateFavoritePhotos = () => {
+    useEffect(() => {
+      if (state.displayFavorites) {
+        getFavoritePhotos()
+      }
+    }, [state.favorites]);
+  };
 
   /**
    * Fetch different image categories when users click on specific photo topics in top navigation
@@ -95,6 +106,7 @@ const useApplicationData = () => {
     state,
     updateToFavPhotoIds,
     getFavoritePhotos,
+    updateFavoritePhotos,
     getPhotosByTopics,
     onPhotoSelect,
     onClosePhotoDetailsModal,
