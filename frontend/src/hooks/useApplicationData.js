@@ -1,5 +1,6 @@
 import { useAppContext, ACTIONS } from 'contexts/AppContext';
 import useFetchData from './useFetchData';
+import getFavPhotosData from "utils/helperFunctions";
 
 const useApplicationData = () => {
   const { state, dispatch } = useAppContext();
@@ -26,6 +27,24 @@ const useApplicationData = () => {
         dispatch({type: ACTIONS.ADD_FAV_PHOTO, payload: id});
       }
   };
+
+  /**
+   * This is used to handle the click event when the favorite badge on the top navigation is clicked.
+   * This will fetch the photo data based on the photo ids in the state.favorites array.
+   * @function
+   */
+  const getFavoritePhotos = () => {
+    // Fetch favorite photos
+    fetch('/api/photos')
+      .then(res => res.json())
+      .then(data => {
+        const favoritesData = getFavPhotosData(state.favorites, data);
+        dispatch({type: ACTIONS.GET_FAVORITE_PHOTOS, payload: favoritesData})
+      })
+      .catch(error => {
+        console.error("Error fetching favorite photos:", error);
+      });
+  }
 
   /**
    * Fetch different image categories when users click on specific photo topics in top navigation
@@ -75,6 +94,7 @@ const useApplicationData = () => {
   return {
     state,
     updateToFavPhotoIds,
+    getFavoritePhotos,
     getPhotosByTopics,
     onPhotoSelect,
     onClosePhotoDetailsModal,

@@ -6,6 +6,7 @@ export const ACTIONS = {
   REMOVE_FAV_PHOTO: 'REMOVE_FAV_PHOTO',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  GET_FAVORITE_PHOTOS: 'GET_FAVORITE_PHOTOS',
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
@@ -31,6 +32,10 @@ function reducer(state, action) {
     case ACTIONS.SET_TOPIC_DATA:
       return {
         ...state, topicData: action.payload
+      }
+    case ACTIONS.GET_FAVORITE_PHOTOS:
+      return {
+        ...state, photoData: action.payload
       }
     case ACTIONS.GET_PHOTOS_BY_TOPICS:
       return {
