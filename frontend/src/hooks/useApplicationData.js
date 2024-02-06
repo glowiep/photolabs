@@ -111,6 +111,15 @@ const useApplicationData = () => {
     dispatch({type: ACTIONS.SET_LOADING, payload: status});
   };
 
+  /**
+   * Action to toggle the dark/light theme
+   * @function
+   * @param {boolean} status - set darkMode state to true or false
+   */
+  const setDarkMode = (status) => {
+    dispatch({type: ACTIONS.SET_DARK_THEME, payload: status});
+  };
+
   return {
     state,
     updateToFavPhotoIds,
@@ -120,7 +129,8 @@ const useApplicationData = () => {
     onPhotoSelect,
     onClosePhotoDetailsModal,
     fetchData,
-    setLoading
+    setLoading,
+    setDarkMode
   };
 };
 

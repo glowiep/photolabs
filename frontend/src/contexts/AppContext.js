@@ -13,7 +13,8 @@ export const ACTIONS = {
   DISPLAY_FAVORITES: 'DISPLAY_FAVORITES',
   CLOSE_MODAL: 'CLOSE_MODAL',
   LOADING_TIMEOUT_DONE: 'LOADING_TIMEOUT_DONE',
-  SET_LOADING: 'SET_LOADING'
+  SET_LOADING: 'SET_LOADING',
+  SET_DARK_THEME: 'SET_DARK_THEME'
 }
 
 function reducer(state, action) {
@@ -73,6 +74,11 @@ function reducer(state, action) {
         ...state,
         loading: action.payload
       }
+    case ACTIONS.SET_DARK_THEME:
+      return {
+        ...state,
+        darkMode: action.payload
+      }
     default:
         throw new Error(
           `Tried to reduce with unsupported action type: ${action.type}`
@@ -86,7 +92,8 @@ const INITIAL_STATE = {
   topicData: [],
   displayModal: false,
   displayFavorites: false,
-  photoSelected: null
+  photoSelected: null,
+  darkMode: false
 }
 
 // Create context
