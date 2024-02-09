@@ -33,6 +33,7 @@ const useApplicationData = () => {
    * This is used to handle the click event when the favorite badge on the top navigation is clicked.
    * This will fetch the photo data based on the photo ids in the state.favorites array.
    * @function
+   * @returns {void}
    */
   const getFavoritePhotos = () => {
     dispatch({type: ACTIONS.DISPLAY_FAVORITES});
@@ -49,6 +50,12 @@ const useApplicationData = () => {
     });
   }
 
+  /**
+   * This is to update the favorite photos that are being displayed.
+   * This is called when the favorite badge on the navigation is clicked.
+   * @function
+   * @returns {void}
+   */
   const updateFavoritePhotos = () => {
     useEffect(() => {
       if (state.displayFavorites) {
@@ -74,6 +81,7 @@ const useApplicationData = () => {
    * Modal display will open if it was not already showing.
    * @function
    * @param {object} photo object with details
+   * @returns {void}
    */
   const onPhotoSelect = (photo) => {
     if (state.displayModal) { // If the modal is already open
@@ -97,6 +105,7 @@ const useApplicationData = () => {
   /**
    * Action to close the modal
    * @function
+   * @returns {void}
    */
   const onClosePhotoDetailsModal = () => {
     dispatch({type: ACTIONS.CLOSE_MODAL});
@@ -106,6 +115,7 @@ const useApplicationData = () => {
    * Action to set the loading state
    * @function
    * @param {boolean} status - set loading state to true or false
+   * @returns {void}
    */
   const setLoading = (status) => {
     dispatch({type: ACTIONS.SET_LOADING, payload: status});
@@ -115,6 +125,7 @@ const useApplicationData = () => {
    * Action to toggle the dark/light theme
    * @function
    * @param {boolean} status - set darkMode state to true or false
+   * @returns {void}
    */
   const setDarkMode = (status) => {
     dispatch({type: ACTIONS.SET_DARK_THEME, payload: status});
