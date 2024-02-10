@@ -3,17 +3,18 @@ import React from 'react';
 import '../styles/TopNavigationBar.scss';
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
-import ControlledSwitch from './ControlledSwitch';
+import ThemeToggle from './ThemeToggle';
 import useApplicationData from '../hooks/useApplicationData';
 
 const TopNavigation = () => {
   const { state } = useApplicationData();
+  const { darkMode } = state;
   return (
-    <div className="top-nav-bar">
-      <span className="top-nav-bar__logo">PhotoLabs</span>
+    <div className={darkMode ? "dark-top-nav-bar" : "top-nav-bar"}>
+      <span className={darkMode ? "dark-top-nav-bar__logo" : "top-nav-bar__logo"}>PhotoLabs</span>
         <TopicList />
         <div className="top-nav-bar__right">
-          <ControlledSwitch />
+          <ThemeToggle />
           <FavBadge isFavPhotoExist={state.favorites.length} />      
         </div>
     </div>

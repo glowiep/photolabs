@@ -19,7 +19,7 @@ const darkTheme = createTheme({
   palette: {
     mode: darkMode ? 'dark' : 'light',
     text: {
-      primary: darkMode ? "#605D5F" : "#000",
+      primary: darkMode ? "#FFFFFF" : "#000"
     }
   },
 });

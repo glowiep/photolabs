@@ -7,7 +7,7 @@ import { Switch, FormGroup, FormControlLabel } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-const ControlledSwitch = () => {
+const ThemeToggle = () => {
   const { state, setDarkMode } = useApplicationData();
   
   const darkMode = state.darkMode;
@@ -15,6 +15,7 @@ const ControlledSwitch = () => {
   const toggleDarkTheme  = () => {
     setDarkMode(!darkMode);
   };
+  
 
   return (
     <div>
@@ -30,4 +31,4 @@ const ControlledSwitch = () => {
   )
 }
 
-export default ControlledSwitch;
+export default ThemeToggle;

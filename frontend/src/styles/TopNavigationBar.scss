@@ -1,3 +1,11 @@
+$nav-bar-background-color: #FFFFFF;
+$nav-bar-box-shadow-color: #222;
+$nav-bar-logo-color: #111;
+
+$dark-nav-bar-background-color: #2a2a2a;
+$dark-nav-bar-box-shadow-color: #FFFFFF;
+$dark-nav-bar-logo-color: #FFFFFF;
+
 .top-nav-bar {
   display: flex;
   flex-direction: row;
@@ -5,10 +13,26 @@
   padding: 8px;
   align-items: center;
   
-  background-color: #FFFFFF;
-  -webkit-box-shadow: 0 4px 6px -6px #222;
-  -moz-box-shadow: 0 4px 6px -6px #222;
-  box-shadow: 0 4px 6px -6px #222;
+  background-color: $nav-bar-background-color;
+  -webkit-box-shadow: 0 4px 6px -6px $nav-bar-box-shadow-color;
+  -moz-box-shadow: 0 4px 6px -6px $nav-bar-box-shadow-color;
+  box-shadow: 0 4px 6px -6px $nav-bar-box-shadow-color;
+  height: 72px;
+  font-weight: 700;
+}
+
+// Dark mode
+.dark-top-nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px;
+  align-items: center;
+  
+  background-color: $dark-nav-bar-background-color;
+  -webkit-box-shadow: 0 4px 6px -6px $dark-nav-bar-box-shadow-color;
+  -moz-box-shadow: 0 4px 6px -6px $dark-nav-bar-box-shadow-color;
+  box-shadow: 0 4px 6px -6px $dark-nav-bar-box-shadow-color;
   height: 72px;
   font-weight: 700;
 }
@@ -17,7 +41,17 @@
   text-decoration: overline;
   font-weight: 700;
   font-size: 24px;
-  color: #111;
+  color: $nav-bar-logo-color;
+  text-underline-position: auto;
+  margin-left: 24px;
+}
+
+// Dark mode
+.dark-top-nav-bar__logo {
+  text-decoration: overline;
+  font-weight: 700;
+  font-size: 24px;
+  color: $dark-nav-bar-logo-color;
   text-underline-position: auto;
   margin-left: 24px;
 }
