@@ -5,8 +5,7 @@
  * @param {Array<Object>} photoData - Array of photo objects with details.
  * @returns {Array<Object>} An array containing the user's favorite photo objects.
  */
-const getFavPhotosData = (favorites, photoData) => {
+export const getFavPhotosData = (favorites, photoData) => {
   return photoData.filter(photo => favorites.includes(photo.id));
 };
 
-export default getFavPhotosData;
