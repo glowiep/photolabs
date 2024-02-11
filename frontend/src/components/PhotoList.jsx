@@ -4,7 +4,6 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 import useApplicationData from "hooks/useApplicationData";
 import emptyImage from '../assets/empty.png';
-import { Paper } from '@mui/material';
 
 const PhotoList = ({ photos }) => {
   const { state } = useApplicationData();
