@@ -6,8 +6,10 @@ export const ACTIONS = {
   REMOVE_FAV_PHOTO: 'REMOVE_FAV_PHOTO',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  SET_SEARCH_VALUE: 'SET_SEARCH_VALUE',
   GET_FAVORITE_PHOTOS: 'GET_FAVORITE_PHOTOS',
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
+  GET_SEARCH_PHOTOS: 'GET_SEARCH_PHOTOS',
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   DISPLAY_FAVORITES: 'DISPLAY_FAVORITES',
@@ -37,6 +39,10 @@ function reducer(state, action) {
       return {
         ...state, topicData: action.payload
       }
+    case ACTIONS.SET_SEARCH_VALUE:
+      return {
+        ...state, searchValue: action.payload
+      }
     case ACTIONS.GET_FAVORITE_PHOTOS:
       return {
         ...state, photoData: action.payload
@@ -46,6 +52,11 @@ function reducer(state, action) {
         ...state, 
         photoData: action.payload,
         displayFavorites: false
+      }
+    case ACTIONS.GET_SEARCH_PHOTOS:
+      return {
+        ...state, 
+        // photoData: action.payload
       }
     case ACTIONS.SELECT_PHOTO:
       return {
@@ -93,7 +104,8 @@ const INITIAL_STATE = {
   displayModal: false,
   displayFavorites: false,
   photoSelected: null,
-  darkMode: false
+  darkMode: false,
+  searchValue: ""
 }
 
 // Create context
