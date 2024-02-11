@@ -16,7 +16,13 @@ const PhotoListItem = ({ photo }) => {
     // Render skeleton for entire item if photo is not available
     return (
       <div className="photo-list__item">
-        <Skeleton variant="rectangular" width={300} height={250}/>
+        <Skeleton 
+          variant="rectangular" 
+          width={300} 
+          height={250} 
+          animation="wave"
+          sx={darkMode ? { bgcolor: "grey.500" } : { bgcolor: "grey.200" }}
+        />
       </div>
     );
   } else {
