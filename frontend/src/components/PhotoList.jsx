@@ -10,7 +10,6 @@ const PhotoList = ({ photos }) => {
   const { state } = useApplicationData();
 
   return (
-    <Paper elevation={0} square>
       <ul className='photo-list'>
         {state.displayFavorites && photos.length === 0 && <img src={emptyImage} alt="No photos available" className="empty-img"></img> }
         {photos.map((photo) => (
@@ -20,7 +19,6 @@ const PhotoList = ({ photos }) => {
           />
         ))}
       </ul>
-    </Paper>
   );
 };
 
