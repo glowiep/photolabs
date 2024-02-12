@@ -13,7 +13,7 @@ const useFetchData = (API_URL, type, dispatch) => {
         .then(res => res.json())
         .then(data => {
           switch (type) {
-            case "photoData": 
+            case "photoData":
               dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data})
               break;
             case "topicData":

@@ -56,7 +56,7 @@ function reducer(state, action) {
     case ACTIONS.GET_SEARCH_PHOTOS:
       return {
         ...state, 
-        // photoData: action.payload
+        photoData: action.payload
       }
     case ACTIONS.SELECT_PHOTO:
       return {
@@ -101,6 +101,7 @@ const INITIAL_STATE = {
   favorites: [],
   photoData: [],
   topicData: [],
+  searchPhotoData: [],
   displayModal: false,
   displayFavorites: false,
   photoSelected: null,

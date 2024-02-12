@@ -1,6 +1,6 @@
 import { useAppContext, ACTIONS } from 'contexts/AppContext';
 import useFetchData from './useFetchData';
-import getFavPhotosData from "utils/helperFunctions";
+import { getFavPhotosData } from "utils/helperFunctions";
 import { useEffect } from 'react';
 
 const useApplicationData = () => {
@@ -130,6 +130,16 @@ const useApplicationData = () => {
   const setDarkMode = (status) => {
     dispatch({type: ACTIONS.SET_DARK_THEME, payload: status});
   };
+  
+  /**
+   * Action to set searchValue state
+   * @function
+   * @param {string} value - set searchValue state
+   * @returns {void}
+   */
+  const setSearchValue = (value) => {
+    dispatch({type: ACTIONS.SET_SEARCH_VALUE, payload: value});
+  };
 
   return {
     state,
@@ -137,6 +147,7 @@ const useApplicationData = () => {
     getFavoritePhotos,
     updateFavoritePhotos,
     getPhotosByTopics,
+    setSearchValue,
     onPhotoSelect,
     onClosePhotoDetailsModal,
     fetchData,
