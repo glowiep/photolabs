@@ -9,11 +9,24 @@ PhotoLabs is a React-based single-page application (SPA) that allows users to vi
 - The user can like a photo from anywhere within the application where the photo is displayed.
 - The user can click on a photo to view a larger version of the photo and relevant / similar photos.
 
+### ⭐ Additional Features
+- <b>Viewing Preferences</b>: Users toggle the dark mode switch on the navigation bar.
+- <b>Favorites</b>: Users can view their list of favorite photos.
+- <b>Search Bar</b>: Users can filter the photos by City.
+<br>
+
+
 ![Photolabs home page](docs/PhotoLabs.png)
 
 ![Photolabs Modal](docs/open-modal-1.png)
 
 ![Photolabs home page](docs/open-modal-2.png)
+
+![Favorites](docs/favorites.png)
+
+![Search bar](docs/search-bar.png)
+
+![Photolabs home page in dark mode](docs/PhotoLabs-dark.png)
 
 ## 🏆 Goals
 To build a client-side application using the React view-layer library.
@@ -48,3 +61,5 @@ npm start
 - <a href="https://webpack.js.org/"> Webpack</a>
 - <a href="https://babeljs.io/"> Babel</a>
 - <a href="https://expressjs.com/"> Express</a>
+- <a href="https://sass-lang.com/documentation/"> Sass</a>
+- <a href="https://mui.com/material-ui/"> Material UI (MUI)</a>
