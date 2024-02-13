@@ -31,7 +31,7 @@ const PhotoListItem = ({ photo }) => {
     const { displayModal } = state;
   
     return (
-      <div className={darkMode ? "dark-photo-list__item" : "photo-list__item"}>
+      <div className="photo-list__item">
           <PhotoFavButton id={id}/>
           <Tooltip title="View Photo">
             <img src={urls.regular} className={displayModal ? "photo-list__modal_image" : "photo-list__image"} onClick={() => {onPhotoSelect(photo)}} alt={`Regular size photo by ${user.username}`}></img>
@@ -41,7 +41,7 @@ const PhotoListItem = ({ photo }) => {
             <div>
               {user.username} 
               <br />
-              <span className={darkMode ? "dark-photo-list__user-location" : "photo-list__user-location"}>{location.city}, {location.country}</span>
+              <span className="photo-list__user-location">{location.city}, {location.country}</span>
             </div>
           </div>
         </div>

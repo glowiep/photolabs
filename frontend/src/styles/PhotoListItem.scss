@@ -22,19 +22,9 @@ $dark-photo-list__item-background-color: #555;
 }
 
 // Dark mode
-.dark-photo-list__item {
-  margin: 12px;
-  padding: 16px;
-  border-width: 0.5px;
+.dark .photo-list__item {
   border-color: $dark-border-color;
-  border-style: solid;
-  border-radius: 8px;
-  max-width: fit-content;
   background-color: $dark-photo-list__item-background-color;
-
-  :hover {
-    cursor: pointer;
-  }
 }
 
 .photo-list__modal_image {
@@ -77,6 +67,6 @@ $dark-photo-list__item-background-color: #555;
 }
 
 // Dark mode
-.dark-photo-list__user-location {
+.dark .photo-list__user-location {
   color: $dark-user-location-color;
 }

@@ -5,10 +5,10 @@ $close-button-background-color: white;
 $close-button-color: white;
 $header-color: #1e1e1e;
 
-$dark-modal-background-color: #636363;
-$dark-modal-image-background-color: #818181;
+$dark-modal-background-color: #6e6e6e;
+$dark-modal-image-background-color: #6e6e6e;
 $dark-photographer-location-color: #e0e0e0;
-$dark-close-button-background-color: #636363;
+$dark-close-button-background-color: #6e6e6e;
 $dark-close-button-color: #d0d0d0;
 $dark-header-color: white;
  
@@ -28,21 +28,13 @@ $dark-header-color: white;
 }
 
 // Dark mode
-.dark-photo-details-modal {
+.dark .photo-details-modal {
   background-color: $dark-modal-background-color;
-  box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
-  position: fixed;
-  top: 41%;
-  left: 50%;
-  transform: translate(-50%, -40%);
-  height: 90%;
-  width: 85%;
-  overflow-y: scroll;
-  border-radius: 12px;
+  box-shadow: 0 0 0 50vmax rgba(87, 87, 87, 0.5);
 }
 
 .photo-details-modal__close-button {
-  background-color: $close-button-background-color;
+  background-color: transparent;
   border: none;
   color: $close-button-color;
   text-align: center;
@@ -55,17 +47,8 @@ $dark-header-color: white;
 }
 
 // Dark mode
-.dark-photo-details-modal__close-button {
-  background-color: $dark-close-button-background-color;
-  border: none;
+.dark .photo-details-modal__close-button {
   color: $dark-close-button-color;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  margin-left: 16px;
-  margin-top: 16px;
 }
 
 .photo-details-modal__images {
@@ -79,8 +62,7 @@ $dark-header-color: white;
 }
 
 // Dark mode
-.dark-photo-details-modal__image {
-  max-width: 95%;
+.dark .photo-details-modal__image {
   background-color: $dark-modal-image-background-color;
 }
 
@@ -108,13 +90,8 @@ $dark-header-color: white;
 }
 
 // Dark mode
-.dark-photo-details-modal__header {
-  font-size: 18px;
-  font-weight: 500;
+.dark .photo-details-modal__header {
   color: $dark-header-color;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  width: 90%;
 }
 
 .photo-details-modal__photographer-location {
@@ -122,7 +99,7 @@ $dark-header-color: white;
 }
 
 // Dark mode
-.dark-photo-details-modal__photographer-location {
+.dark .photo-details-modal__photographer-location {
   color: $dark-photographer-location-color;
 }
 

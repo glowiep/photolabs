@@ -27,7 +27,7 @@ const darkTheme = createTheme({
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <div className="App">
+      <div className={`App ${darkMode && 'dark'}`}>
         <HomeRoute />
         {state.displayModal && <PhotoDetailsModal />}
       </div>

@@ -5,11 +5,10 @@ import "../styles/TopicListItem.scss";
 import useApplicationData from "../hooks/useApplicationData";
 
 const TopicListItem = ({ topic }) => {
-  const { getPhotosByTopics, state } = useApplicationData();
-  const { darkMode } = state;
+  const { getPhotosByTopics } = useApplicationData();
 
   return (
-    <div className={darkMode ? "dark-topic-list__item" : "topic-list__item"} onClick={() => {getPhotosByTopics(topic.id)}}>
+    <div className="topic-list__item" onClick={() => {getPhotosByTopics(topic.id)}}>
       <Tooltip title={`View ${topic.title} Photos`}>
         <span>{topic.title}</span>
       </Tooltip>

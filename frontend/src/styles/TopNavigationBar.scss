@@ -22,19 +22,11 @@ $dark-nav-bar-logo-color: #FFFFFF;
 }
 
 // Dark mode
-.dark-top-nav-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 8px;
-  align-items: center;
-  
+.dark .top-nav-bar {
   background-color: $dark-nav-bar-background-color;
   -webkit-box-shadow: 0 4px 6px -6px $dark-nav-bar-box-shadow-color;
   -moz-box-shadow: 0 4px 6px -6px $dark-nav-bar-box-shadow-color;
   box-shadow: 0 4px 6px -6px $dark-nav-bar-box-shadow-color;
-  height: 72px;
-  font-weight: 700;
 }
 
 .top-nav-bar__logo {
@@ -47,13 +39,8 @@ $dark-nav-bar-logo-color: #FFFFFF;
 }
 
 // Dark mode
-.dark-top-nav-bar__logo {
-  text-decoration: overline;
-  font-weight: 700;
-  font-size: 24px;
+.dark .top-nav-bar__logo {
   color: $dark-nav-bar-logo-color;
-  text-underline-position: auto;
-  margin-left: 24px;
 }
 
 .top-nav-bar__right {

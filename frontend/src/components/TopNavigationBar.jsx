@@ -9,12 +9,10 @@ import SearchBar from './SearchBar';
 
 const TopNavigation = () => {
   const { state } = useApplicationData();
-  const { darkMode } = state;
-  // const dataFiltered = filterData(searchInput, data);
 
   return (
-    <div className={darkMode ? "dark-top-nav-bar" : "top-nav-bar"}>
-      <span className={darkMode ? "dark-top-nav-bar__logo" : "top-nav-bar__logo"}>PhotoLabs</span>
+    <div className="top-nav-bar">
+      <span className="top-nav-bar__logo">PhotoLabs</span>
         <TopicList />
         <SearchBar />
         <div className="top-nav-bar__right">
